@@ -6,7 +6,7 @@ import SensorBox from './SensorBox';
 const HomePage = ({ sensorValues }) => {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Data Center</h1>
       <div className="sensor-container">
         {Object.entries(sensorValues).map(([key, value]) => (
           <SensorBox

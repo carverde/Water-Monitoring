@@ -5,7 +5,7 @@ import Slider from './Slider';
 const SettingsPage = ({ thresholds, onThresholdChange }) => {
   return (
     <div>
-      <h1>Settings</h1>
+      <h1>Threshold</h1>
       <div className="slider-container">
         {Object.entries(thresholds).map(([key, value]) => (
           <div key={key}>
