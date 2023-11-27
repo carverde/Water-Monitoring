@@ -2,6 +2,7 @@
 import React from 'react';
 import SensorBox from './SensorBox';
 
+
 const HomePage = ({ sensorValues }) => {
   return (
     <div>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import HomePage from './components/HomePage';
 import SettingsPage from './components/SettingsPage';
+import DataView from './components/Connector';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
       {currentPage === 'settings' && (
         <SettingsPage thresholds={thresholds} onThresholdChange={handleThresholdChange} />
       )}
+        <DataView />
     </div>
   );
 };
