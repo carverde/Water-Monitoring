@@ -9,7 +9,7 @@ function App() {
     pH: 7.0,
     turbidity: 10,
     conductivity: 500,
-    temperature: 25,
+    temperature: 20,
   });
 
   const [sensorHistory] = useState({
@@ -33,10 +33,12 @@ function App() {
   };
 
   return (
+
     <div>
       <nav className="nav">
-        <button onClick={() => setCurrentPage('home')}>Home</button>
-        <button onClick={() => setCurrentPage('settings')}>Settings</button>
+        <h2>Fullstack IoT Cutie Pies</h2>
+        <button onClick={() => setCurrentPage('home')}>Data Center</button>
+        <button onClick={() => setCurrentPage('settings')}>Threshold Control</button>
       </nav>
 
       {currentPage === 'home' && <HomePage sensorValues={sensorValues} sensorHistory={sensorHistory} />}
