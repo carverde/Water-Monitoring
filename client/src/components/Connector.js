@@ -1,26 +1,44 @@
+// connector.js
 import React, { useState, useEffect } from 'react';
 import firebase from './config';
+import SensorBox from './SensorBox'; // Import SensorBox component
 
 const DataView = () => {
-  const [data, setData] = useState(null);
+  const [sensorData, setSensorData] = useState({
+    pH: null,
+    turbidity: null,
+    conductivity: null,
+    temperature: null,
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const dbRef = firebase.database().ref('/Sensor/Temp');
-        const snapshot = await dbRef.once('value');
-        setData(snapshot.val());
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
+    const dbRef = firebase.database().ref('/Sensor');
+
+    const handleData = (snapshot) => {
+      const data = snapshot.val();
+      setSensorData({
+        pH: data?.pH,
+        turbidity: data?.Tur,
+        conductivity: data?.Cond,
+        temperature: data?.Temp,
+      });
+      setLoading(false);
+      setError(null);
     };
 
-    fetchData();
-  }, []); // Empty dependency array means this effect runs once after the initial render
+    const handleError = (err) => {
+      setError(err);
+      setLoading(false);
+    };
+
+    dbRef.on('value', handleData, handleError);
+
+    return () => {
+      dbRef.off('value', handleData);
+    };
+  }, []);
 
   if (loading) {
     return <p>Loading data...</p>;
@@ -32,8 +50,12 @@ const DataView = () => {
 
   return (
     <div>
-      <h1>Data from Firebase</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <h1>Real-Time Data</h1>
+      <div className="sensor-container">
+        {Object.entries(sensorData).map(([key, value]) => (
+          <SensorBox key={key} title={key} value={value} />
+        ))}
+      </div>
     </div>
   );
 };

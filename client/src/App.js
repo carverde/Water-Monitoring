@@ -1,25 +1,8 @@
-// App.js
 import React, { useState } from 'react';
-import HomePage from './components/HomePage';
 import SettingsPage from './components/SettingsPage';
 import DataView from './components/Connector';
 
 function App() {
-
-  const [sensorValues] = useState({
-    pH: 7.0,
-    turbidity: 10,
-    conductivity: 500,
-    temperature: 20,
-  });
-
-  const [sensorHistory] = useState({
-    pH: [],
-    turbidity: [],
-    conductivity: [],
-    temperature: [],
-  });
-
   const [thresholds, setThresholds] = useState({
     pH: 50,
     turbidity: 30,
@@ -41,8 +24,6 @@ function App() {
         <button onClick={() => setCurrentPage('home')}>Data Center</button>
         <button onClick={() => setCurrentPage('settings')}>Threshold Control</button>
       </nav>
-
-      {currentPage === 'home' && <HomePage sensorValues={sensorValues} sensorHistory={sensorHistory} />}
       {currentPage === 'settings' && (
         <SettingsPage thresholds={thresholds} onThresholdChange={handleThresholdChange} />
       )}
