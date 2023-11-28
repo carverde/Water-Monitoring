@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import SettingsPage from './components/SettingsPage';
 import DataView from './components/Connector';
+<<<<<<< HEAD
 import firebase from './components/config';
+=======
+import LoginButton from './components/LoginButton';
+import LogoutButton from './components/LogoutButton';
+import { useAuth0 } from "@auth0/auth0-react";
+
+>>>>>>> aa83910d9ce7d75d2fc01ff9863b0305ee3cb952
 
 function App() {
   const [thresholds, setThresholds] = useState({
@@ -43,7 +50,13 @@ function App() {
       console.error(`Invalid input for ${sensor}: ${value}`);
     }
   };
+<<<<<<< HEAD
   
+=======
+
+  const { isLoading, error } = useAuth0();
+
+>>>>>>> aa83910d9ce7d75d2fc01ff9863b0305ee3cb952
   return (
 
     <div>
@@ -51,6 +64,14 @@ function App() {
         <h2>Fullstack IoT Cutie Pies</h2>
         <button onClick={() => setCurrentPage('home')}>Data Center</button>
         <button onClick={() => setCurrentPage('settings')}>Threshold Control</button>
+        {error && <p>Authentication Error</p>}
+        {!error && isLoading && <p>Loading...</p>}
+        {!error && !isLoading && (
+        <>
+          <LoginButton />
+          <LogoutButton />
+        </>
+      )}
       </nav>
       {currentPage === 'home' && (<DataView />)}
       {currentPage === 'settings' && (
