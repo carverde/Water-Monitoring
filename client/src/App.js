@@ -53,7 +53,8 @@ function App() {
 
     <div>
       <nav className="nav">
-        <h2>Fullstack IoT Cutie Pies</h2>
+      <h2>Fullstack IoT Cutie Pies</h2>
+      <div className='nav-buttons'>
         <button onClick={() => setCurrentPage('home')}>Data Center</button>
         <button onClick={() => setCurrentPage('settings')}>Threshold Control</button>
         {error && <p>Authentication Error</p>}
@@ -64,6 +65,7 @@ function App() {
           <LogoutButton />
         </>
       )}
+      </div>
       </nav>
       {currentPage === 'home' && (<DataView />)}
       {currentPage === 'settings' && (

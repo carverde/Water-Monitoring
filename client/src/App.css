@@ -1,50 +1,62 @@
 /* App.css */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
 .sensor-container {
-  display: flex;
-  justify-content: space-around;
+display: flex;
+justify-content: space-around;
 }
 
 .sensor-box {
-  width: 150px;
-  height: 150px;
-  border: 1px solid #ccc;
-  background-color: white;
-  padding: 10px;
-  margin: 10px;
-  text-align: center;
+width: 150px;
+height: 150px;
+border: 1px solid #ccc;
+background-color: white;
+padding: 10px;
+margin: 10px;
+text-align: center;
 }
 
 .slider-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 nav {
-  background-color: white;
-  padding: 10px;
-  text-align: center;
+font: 1em sans-serif;
+background-color: rgb(40, 87, 151);
+color: white;
+display: flex;
+align-items: center;
+padding: 20px;
+justify-content: space-between;
+border-bottom: 4px solid rgb(224, 129, 46);
 }
 
-.nav button {
-  background-color: #4287f5;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  cursor: pointer;
-  font-size: 16px;
+.nav h2 {
+margin: 0;
+font-weight: lighter;
 }
 
-.nav button:hover {
-  background-color: #82a9e8;
+.nav-buttons {
+display: flex;
+align-items: center;
 }
 
-.h1 {
-
+.nav-buttons button {
+margin-left: 10px;
+background-color: rgb(40, 87, 151);
+color: white;
+border: none;
+padding: 10px ;
+cursor: pointer;
+font-size: 16px;
 }
 
-body {
-  background-color: #3ecfcc;
-  padding: 20px;
+.nav-buttons button:hover {
+text-decoration: underline;
 }
