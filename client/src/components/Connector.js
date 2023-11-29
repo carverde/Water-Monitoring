@@ -50,7 +50,7 @@ const DataView = () => {
 
   return (
     <div>
-      <h1>Real-Time Data</h1>
+      <h1 style={{margin: '21px'}}>Real-Time Data</h1>
       <div className="sensor-container">
         {Object.entries(sensorData).map(([key, value]) => (
           <SensorBox key={key} title={key} value={value} />

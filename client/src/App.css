@@ -60,3 +60,16 @@ font-size: 16px;
 .nav-buttons button:hover {
 text-decoration: underline;
 }
+
+.centered-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.centered-image-container img {
+  max-width: 50%; /* Ensure the image does not exceed the container width */
+  max-height: 50%; /* Ensure the image does not exceed the container height */
+  width: 25%; /* Adjust the width as needed (e.g., 50% for half the size) */
+  height: 25%; /* Maintain the aspect ratio while resizing */
+}

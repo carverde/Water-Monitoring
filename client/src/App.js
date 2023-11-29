@@ -71,6 +71,9 @@ function App() {
       {currentPage === 'settings' && (
         <SettingsPage thresholds={thresholds} onThresholdChange={handleThresholdChange} />
       )}
+      <div className="centered-image-container">
+      <img src={require('.//images/Gator.png')} alt='Gator'/>
+      </div>
     </div>
   );
 };
